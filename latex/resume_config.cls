@@ -9,7 +9,7 @@
 %                Class options
 %-------------------------------------------------------------------------------
 
-\LoadClass[10pt]{article} % adjust font size here
+\LoadClass[11pt]{article} % adjust font size here
 
 %-------------------------------------------------------------------------------
 %                Packages
@@ -53,10 +53,10 @@
 
 \geometry{
     paper=letterpaper, % Paper size, change to letterpaper for US letter size
-    top=0.4in, % Top margin
-    bottom=0.2in, % Bottom margin
-    left=0.7in, % Left margin
-    right=0.7in, % Right margin
+    top=0.5in, % Top margin
+    bottom=0.5in, % Bottom margin
+    left=0.5in, % Left margin
+    right=0.5in, % Right margin
     headheight=0.4cm, % Header height
     footskip=0.3cm, % Space from the bottom margin to the baseline of the footer
     headsep=0.5cm % Space from the top margin to the baseline of the header
@@ -70,25 +70,43 @@
     {}% before code
     [\color{black}\titlerule\vspace{-5pt}]% after code
 
+
+\newcommand{\custsection}[2]{
+    \large{\textbf{\textsc{\MakeTextUppercase{#1: }}}}\\ #2
+}
+
 %-------------------------------------------------------------------------------
 %                Custom Commands
 %-------------------------------------------------------------------------------
 
-\newcommand{\WorkExperience}[5]{
+\newcommand{\EducationExperience}[5]{
     \noindent
-    \begin{tabular*}{\textwidth}{@{}l @{\extracolsep{\fill}} c @{\extracolsep{\fill}} r}
-    \textbf{#1 - #2} & \textit{#3} & #4 \\
+    \begin{tabular*}{\textwidth}{@{}l @{\extracolsep{\fill}} r}
+        \textbf{#1}, #4 & {#5} \\
+        {#2} & {#3} \\
+    \end{tabular*}
+}
+
+\newcommand{\WorkExperience}[6]{
+    \noindent
+    \begin{tabular*}{\textwidth}{@{}l  @{\extracolsep{\fill}} c @{\extracolsep{\fill}} r}
+    \textbf{#1} & #3 & #5 \\
+    \end{tabular*}
+    \begin{tabular*}{\textwidth}{@{}l @{\extracolsep{\fill}} r}
+    \textbf{#2} &  #4 \\
     \end{tabular*}
     
+    
     \begin{itemize}[itemsep=0pt,topsep=0pt, leftmargin=1.25em, label={$-$}]
-        #5
+        #6
     \end{itemize}
+    \vspace{3pt}
 }
 
 \newcommand{\Project}[4]{
     \noindent
-    \begin{tabular*}{\textwidth}{@{}l @{\extracolsep{\fill}} c @{\extracolsep{\fill}} r}
-    \textbf{#1} & \textit{#2} & #3 \\
+    \begin{tabular*}{\textwidth}{@{}l @{\extracolsep{\fill}} r}
+    {\textbf{#1} $|$ #2} & #3 \\
     \end{tabular*}
 
 
@@ -96,13 +114,14 @@
     \begin{itemize}[itemsep=-1pt, topsep=0pt, leftmargin=1em, label={$*$}]
         #4
     \end{itemize}
-    \vspace{2pt}
+    \vspace{3pt}
 }
 
 \newcommand{\Header}[6]{%
     {   \Huge\textbf{\textsc{\textcolor{black}{#1}}}
         \normalsize{\curl{https://maps.app.goo.gl/KrGpf6oZuvKQurgB8}{\faMapMarker{} #2}}
     }\\[0pt]
+    \vspace{-7pt}
     \begin{center}
         { 
             \curl{tel:#3}{\faPhone{} #3} $|$ 
@@ -118,14 +137,6 @@
     \noindent
     \textbf{#1} \hfill \textit{#3}\\
     \textit{#2} \hfill \textbf{#4}\\
-}
-
-\newcommand{\EducationExperience}[4]{
-    \noindent
-    \begin{tabular*}{\textwidth}{@{}l @{\extracolsep{\fill}} r}
-        \textbf{#1} & {#3} \\
-        {#2} & {#4} \\
-    \end{tabular*}
 }
 
 \newcommand{\Achievement}[2]{
